@@ -1,0 +1,7 @@
+﻿  ArraySorts.cpp
+c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(22): warning C4018: <: несоответствие типов со знаком и без знака
+c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(23): warning C4018: >: несоответствие типов со знаком и без знака
+c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(68): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  MainForLab4.cpp
+  Создание кода...
+  lab4.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\lab4.exe
