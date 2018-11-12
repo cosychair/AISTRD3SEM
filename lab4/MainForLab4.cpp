@@ -37,20 +37,26 @@ int main() {
 			createUserArray(arr, arraySize);
 			//arraySize = 10;  createArrayLowHigh(arr, arraySize, 1);
 			//—ортируем по нужной пользователю сортировке
-			switch (number) {
-			case quickSort: sortByQuickSort(arr, 0, arraySize-1); break;
-			case insertionSort: sortByInsertionSort(arr, arraySize); break;
-			case treeSort: sortByTreeSort(arr, arraySize); break;
-			case bogoSort: sortByBogoSort(arr, arraySize); break;
+			try {
+				switch (number) {
+				case quickSort: sortByQuickSort(arr, 0, arraySize - 1); break;
+				case insertionSort: sortByInsertionSort(arr, arraySize); break;
+				case treeSort: sortByTreeSort(arr, arraySize); break;
+				case bogoSort: sortByBogoSort(arr, arraySize); break;
+				}
+				printArray(arr, arraySize);
+				//ƒаем пользователю возможность пощупать бинарный поиск
+				cout << "Let`s find an element in this array! \nPlease print a value of the element and program will print it`s index: ";
+				int value;
+				cin >> value;
+				cout << endl;
+				int foundIndex = findElementByBinarySearch(arr, arraySize, value);
+				printFoundIndex(foundIndex);
 			}
-			printArray(arr, arraySize);
-			//ƒаем пользователю возможность пощупать бинарный поиск
-			cout << "Let`s find an element in this array! \nPlease print a value of the element and program will print it`s index: ";
-			int value;
-			cin >> value;
-			cout << endl;
-			int foundIndex = findElementByBinarySearch(arr, arraySize, value);
-			printFoundIndex(foundIndex);
+			catch (out_of_range &e) {
+				cout << e.what();
+				error = true;
+			}
 			//очистка пам€ти
 			delete[]arr;
 		}
@@ -58,15 +64,21 @@ int main() {
 			if (number == countingSort) {//провер€ем на ошибку, если все кул, то создаем массив char
 				unsigned char * arr = nullptr;
 				createUserArray(arr, arraySize);
-				sortByCountingSort(arr, arraySize);
-				printArray(arr, arraySize);
-				//ƒаем пользователю возможность пощупать бинарный поиск
-				cout << "Let`s find an element in this array! \nPlease print a value of the element and program will print it`s index: ";
-				unsigned char value;
-				cin >> value;
-				cout << endl;
-				int foundIndex = findElementByBinarySearch(arr, arraySize, value);
-				printFoundIndex(foundIndex);
+				try {
+					sortByCountingSort(arr, arraySize);
+					printArray(arr, arraySize);
+					//ƒаем пользователю возможность пощупать бинарный поиск
+					cout << "Let`s find an element in this array! \nPlease print a value of the element and program will print it`s index: ";
+					unsigned char value;
+					cin >> value;
+					cout << endl;
+					int foundIndex = findElementByBinarySearch(arr, arraySize, value);
+					printFoundIndex(foundIndex);
+				}
+				catch (out_of_range &e) {
+					cout << e.what();
+					error = true;
+				}
 				//очистка пам€ти
 				delete[]arr;
 			}
