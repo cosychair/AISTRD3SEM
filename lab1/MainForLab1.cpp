@@ -23,4 +23,19 @@ int main() {
 	arrayFill(arr, strNum, colNum, val);
 
 	printArray(arr, strNum, colNum, val);
+
+	destroyArray(arr, strNum);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

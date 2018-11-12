@@ -9,12 +9,16 @@ int** createArray(const size_t strNum, const size_t colNum) {
 	return arr;
 }
 
-void destroyArray(int** array, size_t strNum) {
+void destroyArray(int**& array,const size_t strNum) {
 	for (size_t i = 0; i < strNum; i++)
 		delete[] array[i];
+	delete array;
 }
 
-void arrayFill(int** const a, size_t height, size_t width, int val) {
+void arrayFill(int** &const a, const size_t heightB, const size_t widthB, const int valB) {
+	size_t height = heightB;
+	size_t width = widthB;
+	size_t val = valB;
 	int mpr = height > width ? width / 2 + (width & 1) : height / 2 + (height & 1);//минимальный из полуpазмеров размерностей матрицы = количество контуров
 	for (int loop = 0; loop < mpr; ++loop) {//внешний цикл, идущй по контурам
 		int P = (height == 1) ? width : (width == 1) ? height : (width + height - 2) * 2;//perimeter 
@@ -28,13 +32,13 @@ void arrayFill(int** const a, size_t height, size_t width, int val) {
 				else --j;//вверх
 			}
 			//создание значений для следующего контура
-			if (loop < height)val = a[loop + 1][loop] + 1;
+			if (loop+1 < height) val = a[loop + 1][loop] + 1;
 			width -= 2;
 			height -= 2;
 		}
 	}
 }
-
+//тесты 
 size_t getMaxElemWide(const size_t strNum, const size_t colNum, const int val) {
 	int maxE = strNum * colNum + val;
 	size_t dim = 0;

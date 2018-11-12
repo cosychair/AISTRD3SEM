@@ -1,1 +1,12 @@
-﻿  lab1.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\lab1.exe
+﻿  arrayFunctions.cpp
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.h(3): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.cpp(18): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.cpp(29): warning C4018: <: несоответствие типов со знаком и без знака
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.cpp(30): warning C4018: <: несоответствие типов со знаком и без знака
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.cpp(35): warning C4018: <: несоответствие типов со знаком и без знака
+  cnslOutput.cpp
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.h(3): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
+  MainForLab1.cpp
+c:\курс_2\аистрд\aistrd3sem\lab1\arrayfunctions.h(3): warning C4227: устаревший элемент: пропуск квалификаторов для ссылки
+  Создание кода...
+  lab1.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\lab1.lib
