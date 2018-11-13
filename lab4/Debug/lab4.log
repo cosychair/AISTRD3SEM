@@ -1,4 +1,7 @@
-﻿  BasicArrayFunctionsForLab4.cpp
+﻿  ArraySorts.cpp
+c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(81): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  BasicArrayFunctionsForLab4.cpp
+  ConsoleOutput.cpp
   MainForLab4.cpp
   Создание кода...
-  lab4.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\lab4.exe
+  lab4.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\lab4.lib

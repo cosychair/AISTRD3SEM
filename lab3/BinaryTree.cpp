@@ -60,18 +60,18 @@ void BinaryTree::insert(const int key){
 void BinaryTree::remove(const int key){
 	Node *previous = nullptr,
 		*current = root;
-	//Ищем нужный элемент
+	//РС‰РµРј РЅСѓР¶РЅС‹Р№ СЌР»РµРјРµРЅС‚
 	while (current && current->key != key) {
 		previous = current;
 		current = current->getChild(key);
 	}
-	//если элемента не нашлось
+	//РµСЃР»Рё СЌР»РµРјРµРЅС‚Р° РЅРµ РЅР°С€Р»РѕСЃСЊ
 	if (!current) {
 		cout << "Element with key " << key << " not found!" << endl;
 		return;
 	}
 
-	Node *tmp = current;//чтобы удалить потом
+	Node *tmp = current;//С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ РїРѕС‚РѕРј
 
 	if (!current->left && !current->right) {
 		if (previous)

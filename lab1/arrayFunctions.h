@@ -1,12 +1,12 @@
 #pragma once
- /*Функция заполняет массив по спирали, начиная с [0][0] элемента */
+ /*Р¤СѓРЅРєС†РёСЏ Р·Р°РїРѕР»РЅСЏРµС‚ РјР°СЃСЃРёРІ РїРѕ СЃРїРёСЂР°Р»Рё, РЅР°С‡РёРЅР°СЏ СЃ [0][0] СЌР»РµРјРµРЅС‚Р° */
  void arrayFill(int**&const a, const size_t heightB, const size_t widthB, const int valB);
 
  int** createArray(const size_t strNum, const size_t colNum);
 
  void destroyArray(int** &array, const size_t strNum);
  
- /*Функция находит ширину самого широкого элемента в массиве*/
+ /*Р¤СѓРЅРєС†РёСЏ РЅР°С…РѕРґРёС‚ С€РёСЂРёРЅСѓ СЃР°РјРѕРіРѕ С€РёСЂРѕРєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РІ РјР°СЃСЃРёРІРµ*/
  size_t getMaxElemWide(const size_t strNum, const size_t colNum, const int val);
 
  //for tests only

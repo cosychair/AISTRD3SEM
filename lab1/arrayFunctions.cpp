@@ -19,26 +19,26 @@ void arrayFill(int** &const a, const size_t heightB, const size_t widthB, const 
 	size_t height = heightB;
 	size_t width = widthB;
 	size_t val = valB;
-	int mpr = height > width ? width / 2 + (width & 1) : height / 2 + (height & 1);//минимальный из полуpазмеров размерностей матрицы = количество контуров
-	for (int loop = 0; loop < mpr; ++loop) {//внешний цикл, идущй по контурам
+	int mpr = height > width ? width / 2 + (width & 1) : height / 2 + (height & 1);//РјРёРЅРёРјР°Р»СЊРЅС‹Р№ РёР· РїРѕР»СѓpР°Р·РјРµСЂРѕРІ СЂР°Р·РјРµСЂРЅРѕСЃС‚РµР№ РјР°С‚СЂРёС†С‹ = РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРЅС‚СѓСЂРѕРІ
+	for (int loop = 0; loop < mpr; ++loop) {//РІРЅРµС€РЅРёР№ С†РёРєР», РёРґСѓС‰Р№ РїРѕ РєРѕРЅС‚СѓСЂР°Рј
 		int P = (height == 1) ? width : (width == 1) ? height : (width + height - 2) * 2;//perimeter 
-		if (P < 1) a[loop][loop] = val;//исключение случая контура с 1 элементом
+		if (P < 1) a[loop][loop] = val;//РёСЃРєР»СЋС‡РµРЅРёРµ СЃР»СѓС‡Р°СЏ РєРѕРЅС‚СѓСЂР° СЃ 1 СЌР»РµРјРµРЅС‚РѕРј
 		else {
-			for (int i = 0, j = 0, k = 0; k < P; ++k) {//внутренний цикл, идущий по периметру контура
+			for (int i = 0, j = 0, k = 0; k < P; ++k) {//РІРЅСѓС‚СЂРµРЅРЅРёР№ С†РёРєР», РёРґСѓС‰РёР№ РїРѕ РїРµСЂРёРјРµС‚СЂСѓ РєРѕРЅС‚СѓСЂР°
 				a[j + loop][i + loop] = val + k;
-				if (i < width - 1 && j == 0)++i;//вправо
-				else if (i == width - 1 && j < height - 1)++j;//вниз
-				else if (i > 0 && j == height - 1)--i;//влево
-				else --j;//вверх
+				if (i < width - 1 && j == 0)++i;//РІРїСЂР°РІРѕ
+				else if (i == width - 1 && j < height - 1)++j;//РІРЅРёР·
+				else if (i > 0 && j == height - 1)--i;//РІР»РµРІРѕ
+				else --j;//РІРІРµСЂС…
 			}
-			//создание значений для следующего контура
+			//СЃРѕР·РґР°РЅРёРµ Р·РЅР°С‡РµРЅРёР№ РґР»СЏ СЃР»РµРґСѓСЋС‰РµРіРѕ РєРѕРЅС‚СѓСЂР°
 			if (loop+1 < height) val = a[loop + 1][loop] + 1;
 			width -= 2;
 			height -= 2;
 		}
 	}
 }
-//тесты 
+//С‚РµСЃС‚С‹ 
 size_t getMaxElemWide(const size_t strNum, const size_t colNum, const int val) {
 	int maxE = strNum * colNum + val;
 	size_t dim = 0;

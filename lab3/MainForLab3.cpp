@@ -2,12 +2,12 @@
 #include "BinaryTree.h"
 
 int main() {
-	//Вывод приветственного сообщения
+	//Р’С‹РІРѕРґ РїСЂРёРІРµС‚СЃС‚РІРµРЅРЅРѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ
 	cout << "Glad to see you." << endl
 		<< "This is lab3." << endl << endl
 		<< "Author - Kirillov Daniil, gr. 7302, version 1.1" << endl << endl
 		<< "Program gives you access to Binary Tree structure." << endl;
-	//тут сделать проказ рботы всех ключевых функций
+	//С‚СѓС‚ СЃРґРµР»Р°С‚СЊ РїСЂРѕРєР°Р· СЂР±РѕС‚С‹ РІСЃРµС… РєР»СЋС‡РµРІС‹С… С„СѓРЅРєС†РёР№
 	BinaryTree *tree = new BinaryTree();
 	int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
 	for (int i : arrayForTree) tree->insert(i);

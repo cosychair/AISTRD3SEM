@@ -1,10 +1,10 @@
 //VAR 1: 
-//Двоичный поиск (BinarySearch)
-//Быстрая сортировка(QuickSort)
-//Сортировка вставками(InsertionSort)
-//Сортировка с помощью двоичного дерева(TreeSort)
-//Глупая сортировка(BogoSort)
-//Сортировка подсчётом(CountingSort) для типа char
+//Р”РІРѕРёС‡РЅС‹Р№ РїРѕРёСЃРє (BinarySearch)
+//Р‘С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°(QuickSort)
+//РЎРѕСЂС‚РёСЂРѕРІРєР° РІСЃС‚Р°РІРєР°РјРё(InsertionSort)
+//РЎРѕСЂС‚РёСЂРѕРІРєР° СЃ РїРѕРјРѕС‰СЊСЋ РґРІРѕРёС‡РЅРѕРіРѕ РґРµСЂРµРІР°(TreeSort)
+//Р“Р»СѓРїР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°(BogoSort)
+//РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕРґСЃС‡С‘С‚РѕРј(CountingSort) РґР»СЏ С‚РёРїР° char
 #include "ArraySorts.h"
 #include "BasicArrayFunctionsForLab4.h"
 
@@ -15,15 +15,15 @@ int main() {
 	const int sortsAmount = 5;
 	const char* sorts[] = { "QuickSort","InsertionSort","TreeSort", "BogoSort", "CountingSort" };
 
-	bool error = false;//переменная ответственная за ошибки пользователя при вводе номера
+	bool error = false;//РїРµСЂРµРјРµРЅРЅР°СЏ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅР°СЏ Р·Р° РѕС€РёР±РєРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїСЂРё РІРІРѕРґРµ РЅРѕРјРµСЂР°
 	do {
-		//если пользователь ошибся, то ему об этом сообщает конструкция ниже
+		//РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РѕС€РёР±СЃСЏ, С‚Рѕ РµРјСѓ РѕР± СЌС‚РѕРј СЃРѕРѕР±С‰Р°РµС‚ РєРѕРЅСЃС‚СЂСѓРєС†РёСЏ РЅРёР¶Рµ
 		if (error) {
 			error = false;
 			system("cls");
 			cout << "\tERROR!\tPlease print correct number!" << endl;
 		}
-		//Пользователь выбирает сорировку
+		//РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІС‹Р±РёСЂР°РµС‚ СЃРѕСЂРёСЂРѕРІРєСѓ
 		cout << "Please choose sort by printing a number of chosen one: " << endl;
 		for (int i = 1; i <= sortsAmount; i++) cout << i << ") " << sorts[i - 1] << endl;
 		cout << endl << "Number: ";
@@ -32,11 +32,11 @@ int main() {
 
 		size_t arraySize = 0;
 
-		if (number >= quickSort && number < countingSort) {//проверяем какого типа придется создавать массив, если true то int
+		if (number >= quickSort && number < countingSort) {//РїСЂРѕРІРµСЂСЏРµРј РєР°РєРѕРіРѕ С‚РёРїР° РїСЂРёРґРµС‚СЃСЏ СЃРѕР·РґР°РІР°С‚СЊ РјР°СЃСЃРёРІ, РµСЃР»Рё true С‚Рѕ int
 			int * arr = nullptr;
 			createUserArray(arr, arraySize);
 			//arraySize = 10;  createArrayLowHigh(arr, arraySize, 1);
-			//Сортируем по нужной пользователю сортировке
+			//РЎРѕСЂС‚РёСЂСѓРµРј РїРѕ РЅСѓР¶РЅРѕР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ СЃРѕСЂС‚РёСЂРѕРІРєРµ
 			try {
 				switch (number) {
 				case quickSort: sortByQuickSort(arr, 0, arraySize - 1); break;
@@ -45,7 +45,7 @@ int main() {
 				case bogoSort: sortByBogoSort(arr, arraySize); break;
 				}
 				printArray(arr, arraySize);
-				//Даем пользователю возможность пощупать бинарный поиск
+				//Р”Р°РµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕС‰СѓРїР°С‚СЊ Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
 				cout << "Let`s find an element in this array! \nPlease print a value of the element and program will print it`s index: ";
 				int value;
 				cin >> value;
@@ -57,17 +57,17 @@ int main() {
 				cout << e.what();
 				error = true;
 			}
-			//очистка памяти
+			//РѕС‡РёСЃС‚РєР° РїР°РјСЏС‚Рё
 			delete[]arr;
 		}
 		else {
-			if (number == countingSort) {//проверяем на ошибку, если все кул, то создаем массив char
+			if (number == countingSort) {//РїСЂРѕРІРµСЂСЏРµРј РЅР° РѕС€РёР±РєСѓ, РµСЃР»Рё РІСЃРµ РєСѓР», С‚Рѕ СЃРѕР·РґР°РµРј РјР°СЃСЃРёРІ char
 				unsigned char * arr = nullptr;
 				createUserArray(arr, arraySize);
 				try {
 					sortByCountingSort(arr, arraySize);
 					printArray(arr, arraySize);
-					//Даем пользователю возможность пощупать бинарный поиск
+					//Р”Р°РµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕС‰СѓРїР°С‚СЊ Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
 					cout << "Let`s find an element in this array! \nPlease print a value of the element and program will print it`s index: ";
 					unsigned char value;
 					cin >> value;
@@ -79,7 +79,7 @@ int main() {
 					cout << e.what();
 					error = true;
 				}
-				//очистка памяти
+				//РѕС‡РёСЃС‚РєР° РїР°РјСЏС‚Рё
 				delete[]arr;
 			}
 			else error = true;

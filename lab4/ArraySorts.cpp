@@ -8,9 +8,9 @@ void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex)
 	else {
 		if (leftIndex != rightIndex) {
 			size_t i = leftIndex, j = rightIndex;
-			int	pivot = arr[(leftIndex + rightIndex) / 2],//Выбор "точки опоры"
+			int	pivot = arr[(leftIndex + rightIndex) / 2],//Р’С‹Р±РѕСЂ "С‚РѕС‡РєРё РѕРїРѕСЂС‹"
 				tmp;
-			//распределение элементов относительно этой точки
+			//СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ СЌС‚РѕР№ С‚РѕС‡РєРё
 			while (i <= j) {
 				while (arr[i] < pivot)
 					++i;
@@ -22,7 +22,7 @@ void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex)
 					arr[j--] = tmp;
 				}
 			};
-			//Вызов сортировки для левой и правой части получившегося множества
+			//Р’С‹Р·РѕРІ СЃРѕСЂС‚РёСЂРѕРІРєРё РґР»СЏ Р»РµРІРѕР№ Рё РїСЂР°РІРѕР№ С‡Р°СЃС‚Рё РїРѕР»СѓС‡РёРІС€РµРіРѕСЃСЏ РјРЅРѕР¶РµСЃС‚РІР°
 			if (leftIndex < j)	sortByQuickSort(arr, leftIndex, j);
 			if (rightIndex > i) sortByQuickSort(arr, i, rightIndex);
 		}
@@ -33,13 +33,13 @@ void sortByInsertionSort(int * arr, const size_t arraySize){
 	if (!arr)
 		throw out_of_range("Array doesn`t exist!");
 	else {
-		int currentElement;//Элемент массива, подвергающийся вставке
-		size_t j;//вынесено из вложенного цикла сюда, тк j используется после выполнения цикла
+		int currentElement;//Р­Р»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°, РїРѕРґРІРµСЂРіР°СЋС‰РёР№СЃСЏ РІСЃС‚Р°РІРєРµ
+		size_t j;//РІС‹РЅРµСЃРµРЅРѕ РёР· РІР»РѕР¶РµРЅРЅРѕРіРѕ С†РёРєР»Р° СЃСЋРґР°, С‚Рє j РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕСЃР»Рµ РІС‹РїРѕР»РЅРµРЅРёСЏ С†РёРєР»Р°
 		for (size_t i = 0; i < arraySize; ++i) {
 			currentElement = arr[i];
 			for (j = i - 1; j >= 0 && arr[j] > currentElement; --j)
-				arr[j + 1] = arr[j];//сдвиг элементов массива вправо
-			arr[j + 1] = currentElement;//вставка выбранного элемента в упорядоченную часть массива
+				arr[j + 1] = arr[j];//СЃРґРІРёРі СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° РІРїСЂР°РІРѕ
+			arr[j + 1] = currentElement;//РІСЃС‚Р°РІРєР° РІС‹Р±СЂР°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РІ СѓРїРѕСЂСЏРґРѕС‡РµРЅРЅСѓСЋ С‡Р°СЃС‚СЊ РјР°СЃСЃРёРІР°
 		}
 	}
 }
@@ -55,8 +55,8 @@ void sortByBogoSort(int * arr, const size_t arraySize){
 	if (!arr)
 		throw out_of_range("Array doesn`t exist!");
 	else {
-		while (!isArraySorted(arr, arraySize))//проверяем отсортирован ли массив
-			for (size_t i = 0; i < arraySize; i++) {//перемешиваем элементы массива
+		while (!isArraySorted(arr, arraySize))//РїСЂРѕРІРµСЂСЏРµРј РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ Р»Рё РјР°СЃСЃРёРІ
+			for (size_t i = 0; i < arraySize; i++) {//РїРµСЂРµРјРµС€РёРІР°РµРј СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°
 				int tmp = arr[i];
 				int rnd = rand() % arraySize;
 				arr[i] = arr[rnd];
@@ -74,7 +74,7 @@ void sortByCountingSort(unsigned char * arr, const size_t arraySize){
 		for (size_t i = 0; i < charSize; ++i)
 			tmp[i] = 0;
 		for (size_t i = 0; i < arraySize; ++i)
-			tmp[arr[i]]++;//узнаем количество каждого элемента
+			tmp[arr[i]]++;//СѓР·РЅР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РєР°Р¶РґРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
 		size_t k = 0;
 		for (size_t i = 0; i < charSize; ++i)
 			while (tmp[i]-- != 0)

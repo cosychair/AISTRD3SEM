@@ -25,17 +25,17 @@ private:
 public:
 	LinkedList(Node *head = nullptr, Node *tail = nullptr, size_t size = 0) : head(head), tail(tail), size(size) {};
 	~LinkedList();
-	void pushBack(const int data); // добавление в конец списка
-	void pushFront(const int data); // добавление в начало списка
-	void popBack(); // удаление последнего элемента
-	void popFront(); // удаление первого элемента
-	void insert(const int data, const size_t index); // добавление элемента по индексу
-	int at(const size_t index); // получение элемента по индексу
-	void remove(const size_t index); // удаление элемента по индексу
-	size_t getSize(); // получение размера списка
-	void printToConsole(); // вывод элементов списка в консоль через разделитель
-	void clear(); // удаление всех элементов списка
-	void set(const size_t index, const int data); // замена элемента по индексу на передаваемый элемент
-	bool isEmpty(); // проверка на пустоту списка
-	void swap(const size_t index1, const size_t index2); // обмен двух элементов списка по индексам
+	void pushBack(const int data); // РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°
+	void pushFront(const int data); // РґРѕР±Р°РІР»РµРЅРёРµ РІ РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР°
+	void popBack(); // СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°
+	void popFront(); // СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+	void insert(const int data, const size_t index); // РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
+	int at(const size_t index); // РїРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
+	void remove(const size_t index); // СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
+	size_t getSize(); // РїРѕР»СѓС‡РµРЅРёРµ СЂР°Р·РјРµСЂР° СЃРїРёСЃРєР°
+	void printToConsole(); // РІС‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ СЃРїРёСЃРєР° РІ РєРѕРЅСЃРѕР»СЊ С‡РµСЂРµР· СЂР°Р·РґРµР»РёС‚РµР»СЊ
+	void clear(); // СѓРґР°Р»РµРЅРёРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ СЃРїРёСЃРєР°
+	void set(const size_t index, const int data); // Р·Р°РјРµРЅР° СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ РЅР° РїРµСЂРµРґР°РІР°РµРјС‹Р№ СЌР»РµРјРµРЅС‚
+	bool isEmpty(); // РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ СЃРїРёСЃРєР°
+	void swap(const size_t index1, const size_t index2); // РѕР±РјРµРЅ РґРІСѓС… СЌР»РµРјРµРЅС‚РѕРІ СЃРїРёСЃРєР° РїРѕ РёРЅРґРµРєСЃР°Рј
 };

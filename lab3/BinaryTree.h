@@ -21,20 +21,20 @@ private:
 		}
 	};
 	Node *root;
-	int num, maxnum;//счетчик тегов(ключей), максимальный тег
-	//Node* makeNode(int depth);//создание узла дерева с глубиной depth
-	//Функция ищет подходящий лист для встави его вместо условного корня
+	int num, maxnum;//СЃС‡РµС‚С‡РёРє С‚РµРіРѕРІ(РєР»СЋС‡РµР№), РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ С‚РµРі
+	//Node* makeNode(int depth);//СЃРѕР·РґР°РЅРёРµ СѓР·Р»Р° РґРµСЂРµРІР° СЃ РіР»СѓР±РёРЅРѕР№ depth
+	//Р¤СѓРЅРєС†РёСЏ РёС‰РµС‚ РїРѕРґС…РѕРґСЏС‰РёР№ Р»РёСЃС‚ РґР»СЏ РІСЃС‚Р°РІРё РµРіРѕ РІРјРµСЃС‚Рѕ СѓСЃР»РѕРІРЅРѕРіРѕ РєРѕСЂРЅСЏ
 	Node *firstAppropriateLeaf(Node *previous, Node *current, const int lowerBound, const int upperBound);
 public:
 	BinaryTree(Node *root = nullptr, int num = 0, int maxnum = 0):root(root), num(num), maxnum(maxnum){}
 	~BinaryTree();
 
-	BinaryTree createRandomBinaryTree(int depth);//создание дерева случайных размеров 
+	BinaryTree createRandomBinaryTree(int depth);//СЃРѕР·РґР°РЅРёРµ РґРµСЂРµРІР° СЃР»СѓС‡Р°Р№РЅС‹С… СЂР°Р·РјРµСЂРѕРІ 
 
 	Node *getRoot();
-	bool contains(const int key); // поиск элемента в дереве по ключу
-	void insert(const int key); // добавление элемента в дерево по ключу
-	void remove(const int key); // удаление элемента дерева по ключу
+	bool contains(const int key); // РїРѕРёСЃРє СЌР»РµРјРµРЅС‚Р° РІ РґРµСЂРµРІРµ РїРѕ РєР»СЋС‡Сѓ
+	void insert(const int key); // РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РґРµСЂРµРІРѕ РїРѕ РєР»СЋС‡Сѓ
+	void remove(const int key); // СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РґРµСЂРµРІР° РїРѕ РєР»СЋС‡Сѓ
 	
 	class BfsIterator : public Iterator {
 		deque<BinaryTree::Node*> currentNodes;
@@ -61,8 +61,8 @@ public:
 		bool hasNext();
 	};
 
-	DfsIterator *createDfsIterator(); // создание итератора, реализующего методы обхода в глубину (depth-first traverse)
-	BfsIterator* createBfsIterator(); // создание итератора, реализующего методы обхода в ширину (breadth-first traverse)
+	DfsIterator *createDfsIterator(); // СЃРѕР·РґР°РЅРёРµ РёС‚РµСЂР°С‚РѕСЂР°, СЂРµР°Р»РёР·СѓСЋС‰РµРіРѕ РјРµС‚РѕРґС‹ РѕР±С…РѕРґР° РІ РіР»СѓР±РёРЅСѓ (depth-first traverse)
+	BfsIterator* createBfsIterator(); // СЃРѕР·РґР°РЅРёРµ РёС‚РµСЂР°С‚РѕСЂР°, СЂРµР°Р»РёР·СѓСЋС‰РµРіРѕ РјРµС‚РѕРґС‹ РѕР±С…РѕРґР° РІ С€РёСЂРёРЅСѓ (breadth-first traverse)
 	
-	void printBinaryTreeIntoConsole(Node *current, size_t level); // красивый вывод дерева в консоль
+	void printBinaryTreeIntoConsole(Node *current, size_t level); // РєСЂР°СЃРёРІС‹Р№ РІС‹РІРѕРґ РґРµСЂРµРІР° РІ РєРѕРЅСЃРѕР»СЊ
 };

@@ -71,7 +71,7 @@ void LinkedList::insert(const int data, const size_t index) {
 			pushBack(data);
 		else {
 			Node *tmp = head;
-			for (size_t i = 1; i < index; ++i)tmp = tmp->next;//получаем элемент, индекс которого совпадает с index
+			for (size_t i = 1; i < index; ++i)tmp = tmp->next;//РїРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚, РёРЅРґРµРєСЃ РєРѕС‚РѕСЂРѕРіРѕ СЃРѕРІРїР°РґР°РµС‚ СЃ index
 			(tmp->prev)->next = new Node(data);
 			((tmp->prev)->next)->prev = tmp->prev;
 			((tmp->prev)->next)->next = tmp;
@@ -86,7 +86,7 @@ int  LinkedList::at(const size_t index) {
 		throw out_of_range("Index is greater than list size");
 	else {
 		Node *tmp = head;
-		for (size_t i = 1; i < index; ++i)tmp = tmp->next;//получаем элемент, индекс которого совпадает с index
+		for (size_t i = 1; i < index; ++i)tmp = tmp->next;//РїРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚, РёРЅРґРµРєСЃ РєРѕС‚РѕСЂРѕРіРѕ СЃРѕРІРїР°РґР°РµС‚ СЃ index
 		return tmp->data;
 	}
 }
@@ -101,7 +101,7 @@ void LinkedList::remove(const size_t index) {
 				if (index == size)popBack();
 				else {
 					Node *tmp = head;
-					for (size_t i = 1; i < index; ++i)tmp = tmp->next;//получаем элемент, индекс которого совпадает с index
+					for (size_t i = 1; i < index; ++i)tmp = tmp->next;//РїРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚, РёРЅРґРµРєСЃ РєРѕС‚РѕСЂРѕРіРѕ СЃРѕРІРїР°РґР°РµС‚ СЃ index
 					(tmp->prev)->next = tmp->next;
 					(tmp->next)->prev = tmp->prev;
 					delete tmp;
@@ -132,7 +132,7 @@ void LinkedList::set(const size_t index, const int data) {
 		throw out_of_range("Index is greater than list size");
 	else {
 		Node *tmp = head;
-		for (size_t i = 1; i < index; ++i)tmp = tmp->next;//получаем элемент, индекс которого совпадает с index
+		for (size_t i = 1; i < index; ++i)tmp = tmp->next;//РїРѕР»СѓС‡Р°РµРј СЌР»РµРјРµРЅС‚, РёРЅРґРµРєСЃ РєРѕС‚РѕСЂРѕРіРѕ СЃРѕРІРїР°РґР°РµС‚ СЃ index
 		tmp->data = data;
 	}
 }

@@ -2,8 +2,8 @@
 #include <stdexcept>
 #include "../lab3/BinaryTree.h"
 using namespace std;
-template <class T>//православные шаблоны, уменьшили мой код(ну почти)
-//проверяет является ли массив отсортированным от меньшего к большему
+template <class T>//РїСЂР°РІРѕСЃР»Р°РІРЅС‹Рµ С€Р°Р±Р»РѕРЅС‹, СѓРјРµРЅСЊС€РёР»Рё РјРѕР№ РєРѕРґ(РЅСѓ РїРѕС‡С‚Рё)
+//РїСЂРѕРІРµСЂСЏРµС‚ СЏРІР»СЏРµС‚СЃСЏ Р»Рё РјР°СЃСЃРёРІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Рј РѕС‚ РјРµРЅСЊС€РµРіРѕ Рє Р±РѕР»СЊС€РµРјСѓ
 int isArraySorted(const T* arr, const size_t arraySize) {
 	if (!arr)
 		throw out_of_range("Array doesn`t exist!");
@@ -14,7 +14,7 @@ int isArraySorted(const T* arr, const size_t arraySize) {
 	}
 }
 
-//при вызове в индексах указать 0 и размер массива-1, это нужно, тк функция - рекурсивная
+//РїСЂРё РІС‹Р·РѕРІРµ РІ РёРЅРґРµРєСЃР°С… СѓРєР°Р·Р°С‚СЊ 0 Рё СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°-1, СЌС‚Рѕ РЅСѓР¶РЅРѕ, С‚Рє С„СѓРЅРєС†РёСЏ - СЂРµРєСѓСЂСЃРёРІРЅР°СЏ
 void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex);
 
 void sortByInsertionSort(int * arr, const size_t arraySize);
