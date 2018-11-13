@@ -1,4 +1,2 @@
-﻿  BinaryTree.cpp
-c:\курс_2\аистрд\aistrd3sem\lab3\binarytree.cpp(4): error C2248: BinaryTree::Node::~Node: невозможно обратиться к private член, объявленному в классе "BinaryTree::Node"
-  c:\курс_2\аистрд\aistrd3sem\lab3\binarytree.h(14): note: в этом месте создано компилятором: "BinaryTree::Node::~Node"
-  c:\курс_2\аистрд\aistrd3sem\lab3\binarytree.h(5): note:  см. объявление "BinaryTree::Node"
+﻿  MainForLab3.cpp
+  lab3.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\lab3.exe
