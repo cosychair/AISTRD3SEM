@@ -33,7 +33,7 @@ namespace LinkedListTest
 		TEST_METHOD(at_1_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				Assert::IsTrue(tmp->at(1) == 1);
 			}
@@ -46,7 +46,7 @@ namespace LinkedListTest
 		TEST_METHOD(at_middle_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				Assert::IsTrue(tmp->at(2) == 2);
 			}
@@ -59,7 +59,7 @@ namespace LinkedListTest
 		TEST_METHOD(at_last_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				Assert::IsTrue(tmp->at(3) == 3);
 			}
@@ -83,7 +83,7 @@ namespace LinkedListTest
 		TEST_METHOD(push_back_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 10 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 10 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			tmp->pushBack(4);
 			try{
 			Assert::IsTrue(tmp->at(4) == 4);
@@ -106,7 +106,7 @@ namespace LinkedListTest
 		TEST_METHOD(push_front_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 10 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 10 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			tmp->pushFront(4);
 			try{
 			Assert::IsTrue(tmp->at(1) == 4);
@@ -135,7 +135,7 @@ namespace LinkedListTest
 		TEST_METHOD(pop_back_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 10 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 10 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			tmp->popBack();
 			Assert::IsTrue((int)tmp->getSize()==2);
 			delete tmp;
@@ -161,7 +161,7 @@ namespace LinkedListTest
 		TEST_METHOD(pop_front_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			tmp->popFront();
 			Assert::IsTrue((int)tmp->getSize() == 2);
 			delete tmp;
@@ -197,7 +197,7 @@ namespace LinkedListTest
 		TEST_METHOD(insert_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				tmp->insert(6, 2);
 				Assert::IsTrue(tmp->at(2)==6);
@@ -238,7 +238,7 @@ namespace LinkedListTest
 		TEST_METHOD(remove_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				tmp->remove(2);
 				Assert::IsTrue(tmp->at(1) == 1 && tmp->at(2) == 3 && (int)tmp->getSize() == 2);
@@ -252,7 +252,7 @@ namespace LinkedListTest
 		TEST_METHOD(clear_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 10; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 10 включительно
+			for (int i = 1; i <= 10; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 10 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			tmp->clear();
 			Assert::IsTrue(tmp->isEmpty());
 			delete tmp;
@@ -269,7 +269,7 @@ namespace LinkedListTest
 		TEST_METHOD(getSize_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			Assert::IsTrue((int)tmp->getSize() == 3);
 			delete tmp;
 		}
@@ -277,7 +277,7 @@ namespace LinkedListTest
 		TEST_METHOD(set_1_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				tmp->set(1,6);
 				Assert::IsTrue(tmp->at(1) == 6);
@@ -291,7 +291,7 @@ namespace LinkedListTest
 		TEST_METHOD(set_middle_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				tmp->set(2, 6);
 				Assert::IsTrue(tmp->at(2) == 6);
@@ -305,7 +305,7 @@ namespace LinkedListTest
 		TEST_METHOD(set_last_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				tmp->set(3, 6);
 				Assert::IsTrue(tmp->at(3) == 6);
@@ -319,7 +319,7 @@ namespace LinkedListTest
 		TEST_METHOD(set_out_of_range_elem_of_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
-			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
+			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 3 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			try {
 				tmp->set(90, 6);
 				Assert::IsTrue(0);
@@ -335,8 +335,8 @@ namespace LinkedListTest
 			LinkedList *tmp1 = new LinkedList();
 			LinkedList *tmp2 = new LinkedList();
 			for (int i = 1; i <= 17; ++i) {
-				tmp1->pushBack(i);//инициализация списка числами от 1 до 17 включительно
-				tmp2->pushBack(i);//инициализация списка числами от 1 до 17 включительно
+				tmp1->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 17 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
+				tmp2->pushBack(i);//РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїРёСЃРєР° С‡РёСЃР»Р°РјРё РѕС‚ 1 РґРѕ 17 РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 			}
 			try {
 				tmp1->set(1,11);
