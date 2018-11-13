@@ -92,7 +92,7 @@ namespace ArrayFunctionsTest
 			destroyArray(array2, 1);
 		}
 		
-		//тесты для 1 размерности
+		//С‚РµСЃС‚С‹ РґР»СЏ 1 СЂР°Р·РјРµСЂРЅРѕСЃС‚Рё
 
 		TEST_METHOD(arrayFill_test_on_1_5_matrix_start_from_1)
 		{
