@@ -45,26 +45,10 @@ void sortByInsertionSort(int * arr, const size_t arraySize){
 }
 
 void sortByTreeSort(int * arr, const size_t arraySize){
+	BinaryTree *tree = new BinaryTree();
+	
+	//for(BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
 
-}
-
-int isArraySorted(const int* const arr, const size_t arraySize) {
-	if (!arr)
-		throw out_of_range("Array doesn`t exist!");
-	else {
-		for (size_t i = 0; i < arraySize - 1; i++)
-			if (arr[i] > arr[i + 1])return 0;
-		return 1;
-	}
-}
-
-int isArraySorted(const unsigned char * const arr, const size_t arraySize){
-	if (!arr)throw out_of_range("Array doesn`t exist!");
-	else {
-		for (size_t i = 0; i < arraySize - 1; i++)
-			if (arr[i] > arr[i + 1])return 0;
-		return 1;
-	}
 }
 
 void sortByBogoSort(int * arr, const size_t arraySize){
