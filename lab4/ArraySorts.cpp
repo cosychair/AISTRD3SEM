@@ -1,6 +1,7 @@
 #include "ArraySorts.h"
 #include "stdlib.h"
 #include <math.h>
+#include "../lab3/BinaryTree.h"
 
 void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex) {
 	if (!arr)
@@ -45,10 +46,16 @@ void sortByInsertionSort(int * arr, const size_t arraySize){
 }
 
 void sortByTreeSort(int * arr, const size_t arraySize){
-	BinaryTree *tree = new BinaryTree();
-	
-	//for(BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
-
+	if (!arr)
+		throw out_of_range("Array doesn`t exist!");
+	else {
+		BinaryTree *tree = new BinaryTree();//Создается бинарное дерево
+		for (size_t i = 0; i < arraySize; ++i)//Заполнение дерева элементами массива
+			tree->insert(arr[i]);
+		size_t i = 0;
+		for (BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())//Симметричный обход дерева в глубину, дающий отсортированную последовательность
+			arr[i++] = tmp->current();
+	}
 }
 
 void sortByBogoSort(int * arr, const size_t arraySize){
