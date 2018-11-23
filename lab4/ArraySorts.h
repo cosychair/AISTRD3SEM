@@ -1,7 +1,7 @@
 #pragma once
 #include <stdexcept>
-#include "../lab3/BinaryTree.h"
 using namespace std;
+
 template <class T>//православные шаблоны, уменьшили мой код(ну почти)
 //проверяет является ли массив отсортированным от меньшего к большему
 int isArraySorted(const T* arr, const size_t arraySize) {

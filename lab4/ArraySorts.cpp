@@ -1,7 +1,9 @@
 #include "ArraySorts.h"
 #include "stdlib.h"
 #include <math.h>
-#include "../lab3/BinaryTree.h"
+#include <set>
+//#include "../lab3/BinaryTree.h"
+
 
 void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex) {
 	if (!arr)
@@ -49,12 +51,20 @@ void sortByTreeSort(int * arr, const size_t arraySize){
 	if (!arr)
 		throw out_of_range("Array doesn`t exist!");
 	else {
-		BinaryTree *tree = new BinaryTree();//Создается бинарное дерево
+		/*BinaryTree *tree = new BinaryTree();//Создается бинарное дерево
 		for (size_t i = 0; i < arraySize; ++i)//Заполнение дерева элементами массива
 			tree->insert(arr[i]);
 		size_t i = 0;
 		for (BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())//Симметричный обход дерева в глубину, дающий отсортированную последовательность
 			arr[i++] = tmp->current();
+			Скорее всего из-за типовых имен возникает ошибка линкера, которую я не могу пофиксить, поэтому буду использовать стандартный класс multiset
+			*/
+		multiset<int> tree;
+		for (size_t i = 0; i < arraySize; ++i)
+			tree.insert(arr[i]);//Вставка в дерево
+		int i = 0;
+		for (int tmp : tree)
+			arr[i++] = tmp;
 	}
 }
 
