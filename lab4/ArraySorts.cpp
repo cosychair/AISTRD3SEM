@@ -9,7 +9,7 @@ void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex)
 	if (!arr)
 		throw out_of_range("Array doesn`t exist!");
 	else {
-		if (leftIndex != rightIndex) {
+		if (leftIndex < rightIndex) {
 			size_t i = leftIndex, j = rightIndex;
 			int	pivot = arr[(leftIndex + rightIndex) / 2],//Выбор "точки опоры"
 				tmp;
