@@ -16,7 +16,7 @@ private:
 			if(right) delete right;
 			if(left) delete left;
 		}
-		Node *&getChild(const int childKey) {
+		Node *&getChild(const int childKey) {//Возвращает левый узел, если значение ChildKey меньше чем значение key узла, иначе правый
 			return childKey < key ? left : right;
 		}
 	};
@@ -40,7 +40,7 @@ public:
 		deque<BinaryTree::Node*> currentNodes;
 	public:
 		BfsIterator(Node *root) {
-			currentNodes.push_back(root);
+			if(root)currentNodes.push_back(root);
 		}
 		void next();
 		int current();
@@ -51,10 +51,12 @@ public:
 		deque<BinaryTree::Node*> currentNodes;
 	public:
 		DfsIterator(Node *root) {
-			Node *current = root;
-			currentNodes.push_back(root);
-			while (current = current->left)
-				currentNodes.push_back(current);
+			if (root) {
+				Node *current = root;
+				currentNodes.push_back(root);
+				while (current = current->left)
+					currentNodes.push_back(current);
+			}
 		}
 		void next();
 		int current();
