@@ -1,30 +1,8 @@
 #include "BinaryTree.h"
 #include "../lab2/LinkedList.h"
 
-BinaryTree::Node * BinaryTree::firstAppropriateLeaf(Node * previous, Node * current, const int lowerBound, const int upperBound){
-	if (!current)
-		return nullptr;
-
-	if (current->key <= upperBound && current->key > lowerBound && !current->left && !current->right) {
-		previous->getChild(current->key) = nullptr;
-		return current;
-	}
-
-	Node *lf = firstAppropriateLeaf(current, current->left, lowerBound, upperBound);
-	if (lf) return lf;
-	Node *rf = firstAppropriateLeaf(current, current->right, lowerBound, upperBound);
-	if (rf) return rf;
-
-	return nullptr;
-}
-
 BinaryTree::~BinaryTree() {
 	delete root;
-}
-
-BinaryTree BinaryTree::createRandomBinaryTree(int depth)
-{
-	return BinaryTree();
 }
 
 BinaryTree::Node * BinaryTree::getRoot(){
@@ -41,8 +19,8 @@ bool BinaryTree::contains(const int key){
 }
 
 void BinaryTree::insert(const int key){	
-		Node *previous = nullptr,
-		*current = root;
+	Node *previous = nullptr,
+		 *current = root;
 
 	while (current) {
 		previous = current;
@@ -55,6 +33,21 @@ void BinaryTree::insert(const int key){
 	}
 	else
 		root = new Node(key);
+}
+
+BinaryTree::Node * BinaryTree::firstAppropriateLeaf(Node * previous, Node * current, const int lowerBound, const int upperBound) {
+	if (current) {
+		if (current->key <= upperBound && current->key > lowerBound && !current->left && !current->right) {
+			previous->getChild(current->key) = nullptr;
+			return current;
+		}
+
+		Node *lf = firstAppropriateLeaf(current, current->left, lowerBound, upperBound);
+		if (lf) return lf;
+		Node *rf = firstAppropriateLeaf(current, current->right, lowerBound, upperBound);
+		if (rf) return rf;
+	}
+	return nullptr;
 }
 
 void BinaryTree::remove(const int key){
@@ -74,27 +67,18 @@ void BinaryTree::remove(const int key){
 	Node *tmp = current;//чтобы удалить потом
 
 	if (!current->left && !current->right) {
-		if (previous)
-			previous->getChild(key) = nullptr;
-		else
-			root = nullptr;
-	}else if (current->left && current->right) {
+		previous->getChild(key) = nullptr;
+	}
+	else if (current->left && current->right) {
 		Node *sab = firstAppropriateLeaf(nullptr, current, current->left->key, current->right->key);
-		if (previous)
-			previous->getChild(key) = sab;
-		else
-			root = sab;
+		previous->getChild(key) = sab;
 		sab->left = current->left;
 		sab->right = current->right;
 	}
 	else {
 		Node *child = current->left ? current->left : current->right;
-		if (previous)
-			previous->getChild(key) = child;
-		else
-			root = child;
+		previous->getChild(key) = child;
 	}
-
 	delete tmp;
 }
 
@@ -106,6 +90,7 @@ void BinaryTree::printBinaryTreeIntoConsole(Node *current, size_t level){
 	}
 }
 
+//BFSIteratorFunctions----------------------------------------
 BinaryTree::BfsIterator *BinaryTree::createBfsIterator() {
 	return new BfsIterator(root);
 }
@@ -125,6 +110,7 @@ bool BinaryTree::BfsIterator::hasNext(){
 	return	!currentNodes.empty();
 }
 
+//DFSIteratorFunctions----------------------------------------
 BinaryTree::DfsIterator * BinaryTree::createDfsIterator() {
 	return new DfsIterator(root);
 }
