@@ -10,10 +10,18 @@ namespace LinkedListTest
 	{
 	public:
 		
-		TEST_METHOD(is_empty_test)
+		TEST_METHOD(is_empty_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
 			Assert::IsTrue(tmp->isEmpty());
+			delete tmp;
+		}
+
+		TEST_METHOD(is_empty_not_empty_list_test)
+		{
+			LinkedList *tmp = new LinkedList();
+			tmp->pushBack(1);
+			Assert::IsFalse(tmp->isEmpty());
 			delete tmp;
 		}
 
@@ -24,8 +32,8 @@ namespace LinkedListTest
 				tmp->at(1);
 				Assert::IsTrue(0);
 			}
-			catch (out_of_range) {
-				Assert::IsTrue(1);
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Index is greater than list size");
 			}
 			delete tmp;
 		}
@@ -174,8 +182,8 @@ namespace LinkedListTest
 				tmp->insert(2, 2);
 				Assert::IsTrue(0);
 			}
-			catch (out_of_range) {
-				Assert::IsTrue(1);
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Index is greater than list size");
 			}
 			delete tmp;
 		}
@@ -215,8 +223,8 @@ namespace LinkedListTest
 				tmp->remove(1);
 				Assert::IsTrue(0);
 			}
-			catch (out_of_range) {
-				Assert::IsTrue(1);
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Index is greater than list size");
 			}
 			delete tmp;
 		}
@@ -266,11 +274,18 @@ namespace LinkedListTest
 			delete tmp;
 		}
 
-		TEST_METHOD(getSize_test)
+		TEST_METHOD(getSize_not_empty_list_test)
 		{
 			LinkedList *tmp = new LinkedList();
 			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
-			Assert::IsTrue((int)tmp->getSize() == 3);
+			Assert::AreEqual((int)tmp->getSize(), 3);
+			delete tmp;
+		}
+
+		TEST_METHOD(getSize_empty_list_test)
+		{
+			LinkedList *tmp = new LinkedList();
+			Assert::AreEqual((int)tmp->getSize(), 0);
 			delete tmp;
 		}
 
@@ -280,7 +295,7 @@ namespace LinkedListTest
 			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
 			try {
 				tmp->set(1,6);
-				Assert::IsTrue(tmp->at(1) == 6);
+				Assert::AreEqual(tmp->at(1),6);
 			}
 			catch (out_of_range) {
 				Assert::IsTrue(0);
@@ -294,7 +309,7 @@ namespace LinkedListTest
 			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
 			try {
 				tmp->set(2, 6);
-				Assert::IsTrue(tmp->at(2) == 6);
+				Assert::AreEqual(tmp->at(2), 6);
 			}
 			catch (out_of_range) {
 				Assert::IsTrue(0);
@@ -308,7 +323,7 @@ namespace LinkedListTest
 			for (int i = 1; i <= 3; ++i) tmp->pushBack(i);//инициализация списка числами от 1 до 3 включительно
 			try {
 				tmp->set(3, 6);
-				Assert::IsTrue(tmp->at(3) == 6);
+				Assert::AreEqual(tmp->at(3), 6);
 			}
 			catch (out_of_range) {
 				Assert::IsTrue(0);
@@ -324,8 +339,8 @@ namespace LinkedListTest
 				tmp->set(90, 6);
 				Assert::IsTrue(0);
 			}
-			catch (out_of_range) {
-				Assert::IsTrue(1);
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Index is greater than list size");
 			}
 			delete tmp;
 		}
