@@ -67,9 +67,7 @@ void LinkedList::insert(const int data, const size_t index) {
 	else {
 		if (index == 1)
 			pushFront(data);
-		else if (index == size)
-			pushBack(data);
-		else {
+		else{
 			Node *tmp = head;
 			for (size_t i = 1; i < index; ++i)tmp = tmp->next;//получаем элемент, индекс которого совпадает с index
 			(tmp->prev)->next = new Node(data);
