@@ -1,0 +1,15 @@
+﻿  BinaryTree.cpp
+  ArraySorts.cpp
+c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(97): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  BasicArrayFunctionsForLab4.cpp
+c:\курс_2\аистрд\aistrd3sem\lab4\basicarrayfunctionsforlab4.cpp(22): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  ConsoleOutput.cpp
+  MainForLab4.cpp
+c:\курс_2\аистрд\aistrd3sem\lab4\basicarrayfunctionsforlab4.h(17): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  c:\курс_2\аистрд\aistrd3sem\lab4\mainforlab4.cpp(52): note: выполняется компиляция ссылки на экземпляр шаблон функции "int findElementByBinarySearch<int>(const T *,const size_t,const int)"
+          with
+          [
+              T=int
+          ]
+  Создание кода...
+  lab4.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\x64\Debug\lab4.lib

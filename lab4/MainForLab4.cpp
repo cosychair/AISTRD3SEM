@@ -35,11 +35,10 @@ int main() {
 		if (number >= quickSort && number < countingSort) {//проверяем какого типа придется создавать массив, если true то int
 			int * arr = nullptr;
 			createUserArray(arr, arraySize);
-			//arraySize = 10;  createArrayLowHigh(arr, arraySize, 1);
 			//Сортируем по нужной пользователю сортировке
 			try {
 				switch (number) {
-				case quickSort: sortByQuickSort(arr, 0, arraySize - 1); break;
+				case quickSort: sortByQuickSort(arr, arraySize); break;
 				case insertionSort: sortByInsertionSort(arr, arraySize); break;
 				case treeSort: sortByTreeSort(arr, arraySize); break;
 				case bogoSort: sortByBogoSort(arr, arraySize); break;

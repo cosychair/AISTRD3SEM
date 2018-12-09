@@ -14,6 +14,9 @@ int isArraySorted(const T* arr, const size_t arraySize) {
 	}
 }
 
+//just a wrapper
+void sortByQuickSort(int * arr, const size_t arraySize);
+
 //при вызове в индексах указать 0 и размер массива-1, это нужно, тк функция - рекурсивная
 void sortByQuickSort(int * arr, const size_t leftIndex, const size_t rightIndex);
 

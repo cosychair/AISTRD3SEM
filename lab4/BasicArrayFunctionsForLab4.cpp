@@ -5,7 +5,7 @@ void createUserArray(int * &arr, size_t &arraySize) {
 	cout << "Please type size of an array you want:";
 	cin >> arraySize;
 	arr = new int[arraySize];
-	fillArrayRandom(arr, arraySize, 1, 10000);
+	fillArrayRandom(arr, arraySize, -10000, 10000);
 	printArray(arr, arraySize);
 }
 
