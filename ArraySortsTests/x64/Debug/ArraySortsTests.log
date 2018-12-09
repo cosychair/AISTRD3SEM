@@ -1,0 +1,8 @@
+﻿  ArraySortsTests.cpp
+c:\курс_2\аистрд\aistrd3sem\lab4\basicarrayfunctionsforlab4.h(17): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  c:\курс_2\аистрд\aistrd3sem\arraysortstests\arraysortstests.cpp(33): note: выполняется компиляция ссылки на экземпляр шаблон функции "int findElementByBinarySearch<int>(const T *,const size_t,const int)"
+          with
+          [
+              T=int
+          ]
+  ArraySortsTests.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\x64\Debug\ArraySortsTests.dll

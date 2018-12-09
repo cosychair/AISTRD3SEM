@@ -58,15 +58,38 @@ namespace ArraySortsTests
 		TEST_METHOD(isArraySortedOnSortedArray)
 		{
 			int* arr = nullptr;
-			createArrayLowHigh(arr, 10, 0);
-			Assert::IsTrue(isArraySorted(arr, 10));
+			try {
+				createArrayLowHigh(arr, 10, 0);
+				Assert::IsTrue(isArraySorted(arr, 10));
+			}
+			catch(out_of_range e){
+				Assert::IsTrue(0);
+			}
 			delete arr;
 		}
 
 		TEST_METHOD(isArraySortedOnUnsortedArray)
 		{
-			int* arr = new int[10]{1,2,3,4,5,2,7,4,9,10};
-			Assert::IsFalse(isArraySorted(arr, 10));
+			int* arr = new int[10]{ 1,2,3,4,5,2,7,4,9,10 };
+			try {
+				Assert::IsFalse(isArraySorted(arr, 10));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
+			delete arr;
+		}
+
+		TEST_METHOD(isArraySortedOnNullArray)
+		{
+			int* arr = nullptr;
+			try {
+				createArrayLowHigh(arr, 10, 0);
+				Assert::IsTrue(isArraySorted(arr, 10));
+			}
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Array doesn`t exist!");
+			}
 			delete arr;
 		}
 
@@ -74,9 +97,14 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 20;
 			int* arr = new int[arraySize];
-			fillArrayRandom(arr, arraySize, -1000, 1000);
-			sortByQuickSort(arr, 0, arraySize-1);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, -1000, 1000);
+				sortByQuickSort(arr, 0, arraySize - 1);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
 			delete arr;
 		}
 
@@ -84,9 +112,28 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 1;
 			int* arr = new int[arraySize];
-			fillArrayRandom(arr, arraySize, -1000, 1000);
-			sortByQuickSort(arr, 0, arraySize-1);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, -1000, 1000);
+				sortByQuickSort(arr, 0, arraySize - 1);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
+			delete arr;
+		}
+		
+		TEST_METHOD(sortByQuickSortTestOnNullArray)
+		{
+			const size_t arraySize = 20;
+			int* arr = nullptr;
+			try {
+				sortByQuickSort(arr, 0, arraySize - 1);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Array doesn`t exist!");
+			}
 			delete arr;
 		}
 
@@ -94,9 +141,14 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 20;
 			int* arr = new int[arraySize];
-			fillArrayRandom(arr, arraySize, -1000, 1000);
-			sortByInsertionSort(arr, arraySize);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, -1000, 1000);
+				sortByInsertionSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
 			delete arr;
 		}
 
@@ -104,9 +156,28 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 1;
 			int* arr = new int[arraySize];
-			fillArrayRandom(arr, arraySize, -1000, 1000);
-			sortByInsertionSort(arr, arraySize);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, -1000, 1000);
+				sortByInsertionSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
+			delete arr;
+		}
+		
+		TEST_METHOD(sortByInsertionSortTestOnNullArray)
+		{
+			const size_t arraySize = 20;
+			int* arr = nullptr;
+			try {
+				sortByInsertionSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Array doesn`t exist!");
+			}
 			delete arr;
 		}
 
@@ -114,9 +185,14 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 10;
 			int* arr = new int[arraySize];
-			fillArrayRandom(arr, arraySize, -1000, 1000);
-			sortByBogoSort(arr, arraySize);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, -1000, 1000);
+				sortByBogoSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
 			delete arr;
 		}
 
@@ -124,9 +200,28 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 1;
 			int* arr = new int[arraySize];
-			fillArrayRandom(arr, arraySize, -1000, 1000);
-			sortByBogoSort(arr, arraySize);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, -1000, 1000);
+				sortByBogoSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
+			delete arr;
+		}
+
+		TEST_METHOD(sortByBogoSortTestOnNullArray)
+		{
+			const size_t arraySize = 10;
+			int* arr = nullptr;
+			try {
+				sortByBogoSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Array doesn`t exist!");
+			}
 			delete arr;
 		}
 
@@ -134,9 +229,14 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 20;
 			unsigned char* arr = new unsigned char[arraySize];
-			fillArrayRandom(arr, arraySize, 'A', 'z');
-			sortByCountingSort(arr, arraySize);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, 'A', 'z');
+				sortByCountingSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
 			delete arr;
 		}
 
@@ -144,9 +244,28 @@ namespace ArraySortsTests
 		{
 			const size_t arraySize = 1;
 			unsigned char* arr = new unsigned char[arraySize];
-			fillArrayRandom(arr, arraySize, 'A', 'z');
-			sortByCountingSort(arr, arraySize);
-			Assert::IsTrue(isArraySorted(arr, arraySize));
+			try {
+				fillArrayRandom(arr, arraySize, 'A', 'z');
+				sortByCountingSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::IsTrue(0);
+			}
+			delete arr;
+		}
+
+		TEST_METHOD(sortByCountingSortTestOnNullArray)
+		{
+			const size_t arraySize = 20;
+			unsigned char* arr = nullptr;
+			try {
+				sortByCountingSort(arr, arraySize);
+				Assert::IsTrue(isArraySorted(arr, arraySize));
+			}
+			catch (out_of_range e) {
+				Assert::AreEqual(e.what(), "Array doesn`t exist!");
+			}
 			delete arr;
 		}
 	};
