@@ -49,6 +49,14 @@ namespace ArraySortsTests
 			Assert::IsTrue(findElementByBinarySearch(arr1, 10, 9) < 0 ? false : true);
 			delete arr1;
 		}
+
+		TEST_METHOD(findElementByBinarySearchTestElementNotExist)
+		{
+			int* arr1 = nullptr;
+			createArrayLowHigh(arr1, 10, 0);
+			Assert::IsFalse(findElementByBinarySearch(arr1, 10, 90) < 0 ? false : true);
+			delete arr1;
+		}
 	};
 
 	TEST_CLASS(ArraySorts)
