@@ -8,7 +8,19 @@ namespace TestForLab3
 	TEST_CLASS(BinaryTreeTests)
 	{
 	public:
-		TEST_METHOD(insertFunctionTest){
+
+		TEST_METHOD(insertFunctionTestToBegin) {
+			BinaryTree *tree = new BinaryTree();
+			int arrayForTree[] = { 6 };
+			for (int i : arrayForTree) tree->insert(i);
+			const int bfsArray[] = { 6 };
+			int i = 0;
+			for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+				Assert::AreEqual(tmp->current(), bfsArray[i++]);
+			delete tree;
+		}
+
+		TEST_METHOD(insertFunctionTestToMiddleEnd){
 			BinaryTree *tree = new BinaryTree();
 			int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
 			for (int i : arrayForTree) tree->insert(i);
