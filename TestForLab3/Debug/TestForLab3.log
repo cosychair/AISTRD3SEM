@@ -1,0 +1,6 @@
+﻿  stdafx.cpp
+  TestForLab3.cpp
+     Создается библиотека C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\TestForLab3.lib и объект C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\TestForLab3.exp
+TestForLab3.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall BinaryTree::~BinaryTree(void)" (??1BinaryTree@@QAE@XZ) в функции "public: void * __thiscall BinaryTree::`scalar deleting destructor'(unsigned int)" (??_GBinaryTree@@QAEPAXI@Z)
+TestForLab3.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __thiscall BinaryTree::insert(int)" (?insert@BinaryTree@@QAEXH@Z) в функции "public: void __thiscall TestForLab3::BinaryTreeTests::insertFunctionTest(void)" (?insertFunctionTest@BinaryTreeTests@TestForLab3@@QAEXXZ)
+C:\Курс_2\АиСтрД\AISTRD3SEM\Debug\TestForLab3.dll : fatal error LNK1120: неразрешенных внешних элементов: 2

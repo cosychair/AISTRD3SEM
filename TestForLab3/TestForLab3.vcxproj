@@ -162,7 +162,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="unittest1.cpp" />
+    <ClCompile Include="TestForLab3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lab3\lab3.vcxproj">
+      <Project>{bd9f67f3-ab83-4f05-8bf2-8957b9e0bec8}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
