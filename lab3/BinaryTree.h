@@ -2,7 +2,8 @@
 #include "Iterator.h"
 #include <iostream>
 #include <iomanip>
-#include <queue>
+//#include <queue>
+#include "Queue.h"
 using namespace std;
 class BinaryTree{
 private:
@@ -11,36 +12,40 @@ private:
 		int key;
 		Node *right;
 		Node *left;
-		Node(int key = 0, Node *right = nullptr, Node *left = nullptr) :key(key), right(right), left(left) {}
+		Node(int key = 0, Node *right = nullptr, Node *left = nullptr){
+			this->key = key;
+			this->right = right;
+			this->left = left;
+		}
 		~Node() {
-			if(right) delete right;
-			if(left) delete left;
+			if (right) delete right;
+			if (left) delete left;
 		}
 		Node *&getChild(const int childKey) {//Возвращает левый узел, если значение ChildKey меньше чем значение key узла, иначе правый
 			return childKey < key ? left : right;
 		}
 	};
 	Node *root;
-	int num, maxnum;//счетчик тегов(ключей), максимальный тег
-	//Node* makeNode(int depth);//создание узла дерева с глубиной depth
 	//Функция ищет подходящий лист для встави его вместо условного корня
 	Node *firstAppropriateLeaf(Node *previous, Node *current, const int lowerBound, const int upperBound);
 public:
-	BinaryTree(Node *root = nullptr, int num = 0, int maxnum = 0):root(root), num(num), maxnum(maxnum){}
+	BinaryTree(Node *root = nullptr):root(root){}
 	~BinaryTree();
-
-	BinaryTree createRandomBinaryTree(int depth);//создание дерева случайных размеров 
 
 	Node *getRoot();
 	bool contains(const int key); // поиск элемента в дереве по ключу
 	void insert(const int key); // добавление элемента в дерево по ключу
 	void remove(const int key); // удаление элемента дерева по ключу
+	//for BinaryTree level <= 5
+	void printBinaryTreeIntoConsole(); // красивый вывод дерева в консоль 
 	
 	class BfsIterator : public Iterator {
-		deque<BinaryTree::Node*> currentNodes;
+	private:
+		Queue *currentNodes;
 	public:
 		BfsIterator(Node *root) {
-			if(root)currentNodes.push_back(root);
+			currentNodes = new Queue();
+			if (root) currentNodes->pushBack(static_cast<void*>(root));
 		}
 		void next();
 		int current();
@@ -48,14 +53,15 @@ public:
 	};
 
 	class DfsIterator : public Iterator {
-		deque<BinaryTree::Node*> currentNodes;
+		Queue *currentNodes;
 	public:
 		DfsIterator(Node *root) {
+			currentNodes = new Queue();
 			if (root) {
 				Node *current = root;
-				currentNodes.push_back(root);
+				currentNodes->pushBack(static_cast<void*>(root));
 				while (current = current->left)
-					currentNodes.push_back(current);
+					currentNodes->pushBack(static_cast<void*>(current));
 			}
 		}
 		void next();
@@ -64,7 +70,6 @@ public:
 	};
 
 	DfsIterator *createDfsIterator(); // создание итератора, реализующего методы обхода в глубину (depth-first traverse)
-	BfsIterator* createBfsIterator(); // создание итератора, реализующего методы обхода в ширину (breadth-first traverse)
+	BfsIterator *createBfsIterator(); // создание итератора, реализующего методы обхода в ширину (breadth-first traverse)
 	
-	void printBinaryTreeIntoConsole(Node *current, size_t level); // красивый вывод дерева в консоль
 };

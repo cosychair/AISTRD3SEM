@@ -5,7 +5,7 @@ BinaryTree::~BinaryTree() {
 	delete root;
 }
 
-BinaryTree::Node * BinaryTree::getRoot(){
+BinaryTree::Node *BinaryTree:: getRoot(){
 	return root;
 }
 
@@ -37,7 +37,7 @@ void BinaryTree::insert(const int key){
 
 BinaryTree::Node * BinaryTree::firstAppropriateLeaf(Node * previous, Node * current, const int lowerBound, const int upperBound) {
 	if (current) {
-		if (current->key <= upperBound && current->key > lowerBound && !current->left && !current->right) {
+		if (current->key <= upperBound && current->key >= lowerBound && !current->left && !current->right) {
 			previous->getChild(current->key) = nullptr;
 			return current;
 		}
@@ -71,43 +71,95 @@ void BinaryTree::remove(const int key){
 	}
 	else if (current->left && current->right) {
 		Node *sab = firstAppropriateLeaf(nullptr, current, current->left->key, current->right->key);
+		sab->left = previous->getChild(key)->left;
+		sab->right = previous->getChild(key)->right;
 		previous->getChild(key) = sab;
-		sab->left = current->left;
-		sab->right = current->right;
 	}
 	else {
 		Node *child = current->left ? current->left : current->right;
 		previous->getChild(key) = child;
 	}
-	delete tmp;
 }
 
-void BinaryTree::printBinaryTreeIntoConsole(Node *current, size_t level){
-	if (current) {
-		printBinaryTreeIntoConsole(current->right, level + 1);
-		cout << setw(level*3) << current->key<<endl;
-		printBinaryTreeIntoConsole(current->left, level + 1);
+void BinaryTree::printBinaryTreeIntoConsole(){
+	if (!root) 
+		cout << "Tree is empty." << endl;
+	else {
+		Queue *outNodes = new Queue();
+		outNodes->pushBack(static_cast<void*>(root));
+		size_t lvl = 0;
+		int slash[132], shift;
+		for (size_t i = 0; i < 132; i++)slash[i] = 0;
+		while (lvl!=5) {
+			for (size_t i = 0, j=0; i < pow(2, lvl); i++, j+=2) {
+				shift = 32 / pow(2, lvl);
+				if (static_cast<Node*>(outNodes->front())) {
+					cout << setw(shift-1) <<"("<< (static_cast<Node*>(outNodes->front()))->key << ")" << setw(shift-1)<<" ";
+					if (static_cast<Node*>(outNodes->front())->left) {
+						outNodes->pushBack(static_cast<void*>(static_cast<Node*>(outNodes->front())->left));
+						slash[j] = 1;
+					}
+					else {
+						outNodes->pushBack(nullptr);
+						slash[j] = 0;
+					}
+					if (static_cast<Node*>(outNodes->front())->right) {
+						outNodes->pushBack(static_cast<void*>(static_cast<Node*>(outNodes->front())->right));
+						slash[j+1] = 1;
+					}
+					else {
+						outNodes->pushBack(nullptr);
+						slash[j+1] = 0;
+					}
+				}
+				else {
+					cout << setw(shift) << " "<< setw(shift) << " ";
+					slash[j] = 0;
+					slash[j+1] = 0;
+					outNodes->pushBack(nullptr);
+					outNodes->pushBack(nullptr);
+				}
+				outNodes->popFront();
+			}
+			cout << endl;
+			for (size_t i = 0; i < pow(2, lvl+1); i++) {
+				shift = 32 / pow(2, lvl+1);
+				if (slash[i])
+					if(i%2 == 0)
+						cout << setw(shift+2) << "/" << setw(shift-2)<<" ";
+					else
+						cout << setw(shift-2) << "\\" << setw(shift+2) << " ";
+				else
+					if (i % 2 == 0)
+						cout << setw(shift) << " " << setw(shift) << " ";
+					else
+						cout << setw(shift) << " " << setw(shift) << " ";
+				slash[i] = 0;
+			}
+			cout << endl;
+			++lvl;
+		}
 	}
 }
 
 //BFSIteratorFunctions----------------------------------------
-BinaryTree::BfsIterator *BinaryTree::createBfsIterator() {
+BinaryTree::BfsIterator * BinaryTree::createBfsIterator(){
 	return new BfsIterator(root);
 }
 
-void BinaryTree::BfsIterator::next(){
-	Node* current = currentNodes.front();
-	currentNodes.pop_front();
-	if (current->left) currentNodes.push_back(current->left);
-	if (current->right) currentNodes.push_back(current->right);
+void BinaryTree::BfsIterator::next() {
+	Node* current = static_cast<Node*>(currentNodes->front());
+	currentNodes->popFront();
+	if (current->left) currentNodes->pushBack(static_cast<void*>(current->left));
+	if (current->right) currentNodes->pushBack(static_cast<void*>(current->right));
 }
 
-int BinaryTree::BfsIterator::current(){
-	return currentNodes.front()->key;
+int BinaryTree::BfsIterator::current() {
+	return (static_cast<Node*>(currentNodes->front()))->key;
 }
 
-bool BinaryTree::BfsIterator::hasNext(){
-	return	!currentNodes.empty();
+bool BinaryTree::BfsIterator::hasNext() {
+	return !currentNodes->isEmpty();
 }
 
 //DFSIteratorFunctions----------------------------------------
@@ -116,20 +168,21 @@ BinaryTree::DfsIterator * BinaryTree::createDfsIterator() {
 }
 
 void BinaryTree::DfsIterator::next(){
-	Node *back = currentNodes.back();
-	currentNodes.pop_back();
+	Node *current = static_cast<Node*>(currentNodes->back());
+	currentNodes->popBack();
 
-	if (back = back->right) {
-		currentNodes.push_back(back);
-		while (back = back->left)
-			currentNodes.push_back(back);
+	if (current = current->right) {
+		currentNodes->pushBack(static_cast<void*>(current));
+		while (current = current->left)
+			currentNodes->pushBack(static_cast<void*>(current));
 	}
 }
 
+
 int BinaryTree::DfsIterator::current(){
-	return currentNodes.back()->key;
+	return static_cast<Node*>(currentNodes->back())->key;
 }
 
 bool BinaryTree::DfsIterator::hasNext(){
-	return !currentNodes.empty();
+	return !currentNodes->isEmpty();
 }

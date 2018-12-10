@@ -6,17 +6,25 @@ int main() {
 	cout << "Glad to see you." << endl
 		<< "This is lab3." << endl << endl
 		<< "Author - Kirillov Daniil, gr. 7302, version 1.1" << endl << endl
-		<< "Program gives you access to Binary Tree structure." << endl;
-	//тут сделать проказ рботы всех ключевых функций
+		<< "Program gives you access to view Binary Tree structure." << endl;
+	
 	BinaryTree *tree = new BinaryTree();
 	int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
 	for (int i : arrayForTree) tree->insert(i);
-	tree->printBinaryTreeIntoConsole(tree->getRoot(), 10);
+	
+	tree->printBinaryTreeIntoConsole();
+	tree->remove(11);
+	tree->printBinaryTreeIntoConsole();
+
+	//пример обхода в ширину
 	for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 		cout << tmp->current()<<" ";
 	cout << endl;
-
-
+	//пример обхода в глубину
+	for (BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
+		cout << tmp->current() << " ";
+	cout << endl;
+	
 	delete tree;
 }
 
