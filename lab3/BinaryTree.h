@@ -69,7 +69,7 @@ public:
 		bool hasNext();
 	};
 
-	DfsIterator *createDfsIterator(); // создание итератора, реализующего методы обхода в глубину (depth-first traverse)
-	BfsIterator *createBfsIterator(); // создание итератора, реализующего методы обхода в ширину (breadth-first traverse)
+	Iterator *createDfsIterator(); // создание итератора, реализующего методы обхода в глубину (depth-first traverse)
+	Iterator *createBfsIterator(); // создание итератора, реализующего методы обхода в ширину (breadth-first traverse)
 	
 };

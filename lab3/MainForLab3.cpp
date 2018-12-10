@@ -14,14 +14,14 @@ int main() {
 	
 	tree->printBinaryTreeIntoConsole();
 	tree->remove(11);
-	tree->printBinaryTreeIntoConsole();
+	//tree->printBinaryTreeIntoConsole();
 
 	//пример обхода в ширину
-	for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+	for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 		cout << tmp->current()<<" ";
 	cout << endl;
 	//пример обхода в глубину
-	for (BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
+	for (Iterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
 		cout << tmp->current() << " ";
 	cout << endl;
 	

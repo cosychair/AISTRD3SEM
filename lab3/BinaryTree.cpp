@@ -1,5 +1,4 @@
 #include "BinaryTree.h"
-#include "../lab2/LinkedList.h"
 
 BinaryTree::~BinaryTree() {
 	delete root;
@@ -87,63 +86,35 @@ void BinaryTree::printBinaryTreeIntoConsole(){
 	else {
 		Queue *outNodes = new Queue();
 		outNodes->pushBack(static_cast<void*>(root));
-		size_t lvl = 0;
-		int slash[132], shift;
-		for (size_t i = 0; i < 132; i++)slash[i] = 0;
-		while (lvl!=5) {
-			for (size_t i = 0, j=0; i < pow(2, lvl); i++, j+=2) {
-				shift = 32 / pow(2, lvl);
+		int slash[132], lvl = -1;
+		for (size_t i = 0; i < 132; i++) slash[i] = 0;
+		while (++lvl!=5) {
+			for (size_t i = 0, j=0, shift = 32 / pow(2, lvl); i < pow(2, lvl); i++, j+=2) {
 				if (static_cast<Node*>(outNodes->front())) {
 					cout << setw(shift-1) <<"("<< (static_cast<Node*>(outNodes->front()))->key << ")" << setw(shift-1)<<" ";
-					if (static_cast<Node*>(outNodes->front())->left) {
-						outNodes->pushBack(static_cast<void*>(static_cast<Node*>(outNodes->front())->left));
-						slash[j] = 1;
-					}
-					else {
-						outNodes->pushBack(nullptr);
-						slash[j] = 0;
-					}
-					if (static_cast<Node*>(outNodes->front())->right) {
-						outNodes->pushBack(static_cast<void*>(static_cast<Node*>(outNodes->front())->right));
-						slash[j+1] = 1;
-					}
-					else {
-						outNodes->pushBack(nullptr);
-						slash[j+1] = 0;
-					}
+					outNodes->pushBack(static_cast<Node*>(outNodes->front())->left?static_cast<void*>(static_cast<Node*>(outNodes->front())->left):nullptr);
+					outNodes->pushBack(static_cast<Node*>(outNodes->front())->right?static_cast<void*>(static_cast<Node*>(outNodes->front())->right):nullptr);
+					slash[j] = static_cast<Node*>(outNodes->front())->left ? 1 : 0;
+					slash[j + 1] = static_cast<Node*>(outNodes->front())->right ? 1 : 0;
 				}
 				else {
 					cout << setw(shift) << " "<< setw(shift) << " ";
-					slash[j] = 0;
-					slash[j+1] = 0;
+					slash[j + 1] = slash[j] = 0;
 					outNodes->pushBack(nullptr);
 					outNodes->pushBack(nullptr);
 				}
 				outNodes->popFront();
 			}
 			cout << endl;
-			for (size_t i = 0; i < pow(2, lvl+1); i++) {
-				shift = 32 / pow(2, lvl+1);
-				if (slash[i])
-					if(i%2 == 0)
-						cout << setw(shift+2) << "/" << setw(shift-2)<<" ";
-					else
-						cout << setw(shift-2) << "\\" << setw(shift+2) << " ";
-				else
-					if (i % 2 == 0)
-						cout << setw(shift) << " " << setw(shift) << " ";
-					else
-						cout << setw(shift) << " " << setw(shift) << " ";
-				slash[i] = 0;
-			}
+			for (size_t i = 0, shift = 32 / pow(2, lvl + 1); i < pow(2, lvl + 1); slash[i++] = 0) 
+				cout << setw(shift + slash[i]*(i & 1 ? -2 : 2)) << (slash[i]?i & 1 ? "\\"  : "/":" ") << setw(shift - slash[i] * (i & 1 ? -2 : 2)) << " ";
 			cout << endl;
-			++lvl;
 		}
 	}
 }
 
 //BFSIteratorFunctions----------------------------------------
-BinaryTree::BfsIterator * BinaryTree::createBfsIterator(){
+Iterator * BinaryTree::createBfsIterator(){
 	return new BfsIterator(root);
 }
 
@@ -163,7 +134,7 @@ bool BinaryTree::BfsIterator::hasNext() {
 }
 
 //DFSIteratorFunctions----------------------------------------
-BinaryTree::DfsIterator * BinaryTree::createDfsIterator() {
+Iterator * BinaryTree::createDfsIterator() {
 	return new DfsIterator(root);
 }
 
