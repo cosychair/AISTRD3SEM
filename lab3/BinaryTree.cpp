@@ -62,22 +62,31 @@ void BinaryTree::remove(const int key){
 		cout << "Element with key " << key << " not found!" << endl;
 		return;
 	}
-
 	Node *tmp = current;//чтобы удалить потом
 
-	if (!current->left && !current->right) {
-		previous->getChild(key) = nullptr;
-	}
+	if (!current->left && !current->right)
+		if (previous)
+			previous->getChild(key) = nullptr;
+		else
+			root = nullptr;
 	else if (current->left && current->right) {
 		Node *sab = firstAppropriateLeaf(nullptr, current, current->left->key, current->right->key);
-		sab->left = previous->getChild(key)->left;
-		sab->right = previous->getChild(key)->right;
-		previous->getChild(key) = sab;
+		if (previous)
+			previous->getChild(key) = sab;
+		else
+			root = sab; 
+		sab->left = current->left;
+		sab->right = current->right;
 	}
 	else {
 		Node *child = current->left ? current->left : current->right;
-		previous->getChild(key) = child;
+		if (previous)
+			previous->getChild(key) = child;
+		else
+			root = child;
 	}
+	tmp->left = nullptr;
+	tmp->right = nullptr;
 }
 
 void BinaryTree::printBinaryTreeIntoConsole(){

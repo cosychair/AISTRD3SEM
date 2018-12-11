@@ -13,8 +13,8 @@ int main() {
 	for (int i : arrayForTree) tree->insert(i);
 	
 	tree->printBinaryTreeIntoConsole();
-	tree->remove(11);
-	//tree->printBinaryTreeIntoConsole();
+	tree->remove(6);
+	tree->printBinaryTreeIntoConsole();
 
 	//пример обхода в ширину
 	for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
