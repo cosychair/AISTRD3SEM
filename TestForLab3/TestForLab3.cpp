@@ -15,7 +15,7 @@ namespace TestForLab3
 			for (int i : arrayForTree) tree->insert(i);
 			const int bfsArray[] = { 6 };
 			int i = 0;
-			for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+			for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 				Assert::AreEqual(tmp->current(), bfsArray[i++]);
 			delete tree;
 		}
@@ -26,18 +26,8 @@ namespace TestForLab3
 			for (int i : arrayForTree) tree->insert(i);
 			const int bfsArray[] = { 6,2,11,3,9,30,13,18 };
 			int i=0;
-			for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+			for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 				Assert::AreEqual(tmp->current(), bfsArray[i++]);
-			delete tree;
-		}
-
-		TEST_METHOD(containsFunctionTestIsTrue) {
-			BinaryTree *tree = new BinaryTree();
-			int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
-			for (int i : arrayForTree) tree->insert(i);
-			const int bfsArray[] = { 6,2,11,3,9,30,13,18 };
-			for (int i = 0; i < 8; ++i)
-				Assert::IsTrue(tree->contains(bfsArray[i]));
 			delete tree;
 		}
 
@@ -57,26 +47,26 @@ namespace TestForLab3
 			delete tree;
 		}
 
-		TEST_METHOD(removeFunctionTestFormMiddle) {
+		TEST_METHOD(removeFunctionTestFromMiddle) {
 			BinaryTree *tree = new BinaryTree();
 			int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
 			for (int i : arrayForTree) tree->insert(i);
 			const int bfsArray[] = { 6,2,9,3,30,13,18 };
 			tree->remove(11);
 			int i = 0;
-			for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+			for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 				Assert::AreEqual(tmp->current(), bfsArray[i++]);
 			delete tree;
 		}
 
-		TEST_METHOD(removeFunctionTestFormEnd) {
+		TEST_METHOD(removeFunctionTestFromEnd) {
 			BinaryTree *tree = new BinaryTree();
 			int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
 			for (int i : arrayForTree) tree->insert(i);
 			const int bfsArray[] = { 6,2,11,3,9,30,13 };
 			tree->remove(18);
 			int i = 0;
-			for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+			for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 				Assert::AreEqual(tmp->current(), bfsArray[i++]);
 			delete tree;
 		}
@@ -88,15 +78,20 @@ namespace TestForLab3
 			const int bfsArray[] = { 6,2,11,3,9,30,13, 18 };
 			tree->remove(100);
 			int i = 0;
-			for (BinaryTree::BfsIterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+			for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
 				Assert::AreEqual(tmp->current(), bfsArray[i++]);
 			delete tree;
 		}
 
-		TEST_METHOD(removeFunctionTestFormEmpty) {
+		TEST_METHOD(removeFunctionTestRoot) {
 			BinaryTree *tree = new BinaryTree();
-			tree->remove(18);
-			Assert::IsTrue(1);
+			int arrayForTree[] = { 6,2,3,11,9,30,13,18 };
+			for (int i : arrayForTree) tree->insert(i);
+			const int bfsArray[] = { 3,2,11,9,30,13, 18 };
+			tree->remove(6);
+			int i = 0;
+			for (Iterator *tmp = tree->createBfsIterator(); tmp->hasNext(); tmp->next())
+				Assert::AreEqual(tmp->current(), bfsArray[i++]);
 			delete tree;
 		}
 	};
@@ -109,7 +104,7 @@ namespace TestForLab3
 			for (int i : arrayForTree) tree->insert(i);
 			const int dfsArray[] = { 2,3,6,9,11,13,18,30 };
 			int i = 0;
-			for (BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
+			for (Iterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())
 				Assert::AreEqual(tmp->current(), dfsArray[i++]);
 			delete tree;
 		}
