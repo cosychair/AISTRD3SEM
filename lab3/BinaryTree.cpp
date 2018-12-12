@@ -98,7 +98,7 @@ void BinaryTree::printBinaryTreeIntoConsole(){
 		int slash[132], lvl = -1;
 		for (size_t i = 0; i < 132; i++) slash[i] = 0;
 		while (++lvl!=5) {
-			for (size_t i = 0, j=0, shift = 32 / pow(2, lvl); i < pow(2, lvl); i++, j+=2) {
+			for (size_t i = 0, j=0, shift = 32 / (size_t)pow(2, lvl); i < pow(2, lvl); i++, j+=2) {
 				if (static_cast<Node*>(outNodes->front())) {
 					cout << setw(shift-1) <<"("<< (static_cast<Node*>(outNodes->front()))->key << ")" << setw(shift-1)<<" ";
 					outNodes->pushBack(static_cast<Node*>(outNodes->front())->left?static_cast<void*>(static_cast<Node*>(outNodes->front())->left):nullptr);
@@ -115,7 +115,7 @@ void BinaryTree::printBinaryTreeIntoConsole(){
 				outNodes->popFront();
 			}
 			cout << endl;
-			for (size_t i = 0, shift = 32 / pow(2, lvl + 1); i < pow(2, lvl + 1); slash[i++] = 0) 
+			for (size_t i = 0, shift = 32 / (size_t)pow(2, lvl + 1); i < pow(2, lvl + 1); slash[i++] = 0)
 				cout << setw(shift + slash[i]*(i & 1 ? -2 : 2)) << (slash[i]?i & 1 ? "\\"  : "/":" ") << setw(shift - slash[i] * (i & 1 ? -2 : 2)) << " ";
 			cout << endl;
 		}
