@@ -1,6 +1,6 @@
 ﻿  BinaryTree.cpp
   ArraySorts.cpp
-c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(97): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+c:\курс_2\аистрд\aistrd3sem\lab4\arraysorts.cpp(101): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
   BasicArrayFunctionsForLab4.cpp
 c:\курс_2\аистрд\aistrd3sem\lab4\basicarrayfunctionsforlab4.cpp(22): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
   ConsoleOutput.cpp
@@ -12,4 +12,4 @@ c:\курс_2\аистрд\aistrd3sem\lab4\basicarrayfunctionsforlab4.h(17): war
               T=int
           ]
   Создание кода...
-  lab4.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\x64\Debug\lab4.lib
+  lab4.vcxproj -> C:\Курс_2\АиСтрД\AISTRD3SEM\x64\Debug\lab4.exe

@@ -41,7 +41,7 @@ void sortByInsertionSort(int * arr, const size_t arraySize){
 		throw out_of_range("Array doesn`t exist!");
 	else {
 		int currentElement;//Элемент массива, подвергающийся вставке
-		size_t j;//вынесено из вложенного цикла сюда, тк j используется после выполнения цикла
+		size_t j;//вынесено из вложенного цикла сюда, тк j используется после выполнения вложенного цикла
 		for (size_t i = 0; i < arraySize; ++i) {
 			currentElement = arr[i];
 			for (j = i - 1; j >= 0 && arr[j] > currentElement; --j)
@@ -59,7 +59,7 @@ void sortByTreeSort(int * arr, const size_t arraySize){
 		for (size_t i = 0; i < arraySize; ++i)//Заполнение дерева элементами массива
 			tree->insert(arr[i]);
 		size_t i = 0;
-		for (BinaryTree::DfsIterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())//Симметричный обход дерева в глубину, дающий отсортированную последовательность
+		for (Iterator *tmp = tree->createDfsIterator(); tmp->hasNext(); tmp->next())//Симметричный обход дерева в глубину, дающий отсортированную последовательность
 			arr[i++] = tmp->current();
 		
 		/*multiset<int> tree;

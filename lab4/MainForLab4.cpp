@@ -7,7 +7,7 @@
 //Сортировка подсчётом(CountingSort) для типа char
 #include "ArraySorts.h"
 #include "BasicArrayFunctionsForLab4.h"
-
+#include <time.h>
 enum Sorts {quickSort = 1 , insertionSort, treeSort, bogoSort, countingSort};
 
 int main() {
